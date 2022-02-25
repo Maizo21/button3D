@@ -1,0 +1,144 @@
+body {
+  font-family: chaloops, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #363636;
+  height: 95vh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+button {
+  height: 50px;
+  width: 200px;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  border: 1px solid #a3a3a3;
+  font-size: 20px;
+  font-family: chaloops, sans-serif;
+  font-weight: 400;
+  color: black;
+  cursor: pointer;
+  transition: 0.5s;
+  position: relative;
+  outline: none;
+  transform-style: preserve-3d;
+}
+
+button::before {
+  content: " ";
+  position: absolute;
+  left: -1px;
+  top: 15px;
+  height: 45px;
+  width: 197px;
+  border-radius: 5px;
+  background-color: #cacaca;
+  border: 1px solid #c0c0c0;
+  cursor: pointer;
+  transform: translate3d(0, 0, -1em);
+  transition: 0.5s;
+}
+
+button:hover {
+  transform: translateY(4px);
+  background-color: #e2e2e2;
+}
+
+button:hover::before {
+  transform: translateY(-4px) translate3d(0, 0, -1em);
+  background-color: #a3a3a3;
+}
+
+button:active {
+  transform: translateY(15px);
+  background-color: #cacaca;
+  color: #f5f5f5;
+  border-color: #5a5a5a;
+}
+
+button:active::before {
+  transform: translateY(-15px) translate3d(0, 0, -1em);
+  background-color: #cec;
+}
+
+.alarm {
+  position: absolute;
+  top: 5vw;
+  left: 44vw;
+  animation-name: alarmOn;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+  filter: drop-shadow(2px 4px 6px black);
+  width: 250px;
+  opacity: 0;
+  transition: 1s;
+}
+
+.boom {
+  position: absolute;
+  top: 25vw;
+  left: 44vw;
+  animation-name: boomOn;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  filter: drop-shadow(2px 4px 6px black);
+  width: 250px;
+  opacity: 0;
+  transition: 1s;
+  z-index: -1;
+  animation-play-state: paused;
+}
+
+.boomSound {
+  display: none;
+}
+
+@keyframes alarmOn {
+  from {
+    filter: drop-shadow(2px 4px 6px black);
+  }
+
+  to {
+    filter: drop-shadow(2px 4px 6px black) hue-rotate(30deg);
+  }
+}
+
+@keyframes boomOn {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(4);
+  }
+}
+
+@keyframes overlayOn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 100px) and (max-width: 830px) {
+  .alarm {
+    top: 10vw;
+    left: 23vw;
+    width: 230px;
+  }
+
+  .boom {
+    top: 60vw;
+    left: 28vw;
+    width: 220px;
+  }
+}
