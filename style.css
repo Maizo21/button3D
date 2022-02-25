@@ -70,7 +70,7 @@ button:active::before {
 .alarm {
   position: absolute;
   top: 5vw;
-  left: 44vw;
+  left: 41vw;
   animation-name: alarmOn;
   animation-duration: 0.2s;
   animation-iteration-count: infinite;
@@ -82,7 +82,7 @@ button:active::before {
 
 .boom {
   position: absolute;
-  top: 25vw;
+  top: 15vw;
   left: 44vw;
   animation-name: boomOn;
   animation-duration: 2s;
